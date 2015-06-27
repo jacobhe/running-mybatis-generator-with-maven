@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+  <context id="MySQLTables" targetRuntime="MyBatis3">
+    <jdbcConnection driverClass="${mybatis.generator.jdbcDriver}"
+        connectionURL="${mybatis.generator.jdbcURL}"
+        userId="${mybatis.generator.jdbcUserId}"
+        password="${mybatis.generator.jdbcPassword}">
+    </jdbcConnection>
+
+    <javaTypeResolver >
+      <property name="forceBigDecimals" value="false" />
+    </javaTypeResolver>
+
+    <javaModelGenerator targetPackage="com.github.jacobhe.demo.model" targetProject="MAVEN">
+      <property name="enableSubPackages" value="true" />
+      <property name="trimStrings" value="true" />
+    </javaModelGenerator>
+
+    <sqlMapGenerator targetPackage="com.github.jacobhe.demo.xml" targetProject="MAVEN">
+      <property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.github.jacobhe.demo.dao" targetProject="MAVEN">
+      <property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+
+    <table tableName="demo">
+    </table>
+
+  </context>
+</generatorConfiguration>

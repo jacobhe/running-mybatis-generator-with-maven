@@ -1,0 +1,108 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.github.jacobhe</groupId>
+    <artifactId>running-mybatis-generator-with-maven</artifactId>
+    <version>1.0</version>
+    <name>Running MyBatis Generator With Maven</name>
+    <description>
+        This Maven project demonstrates how we can run MyBatis Generator with Maven 
+    </description>
+    <licenses>
+        <license>
+            <name>Apache License 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+        </license>
+    </licenses>
+    <properties>
+    </properties>
+    <profiles>
+        <profile>
+            <id>demo</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <build.profile.id>demo</build.profile.id>
+            </properties>
+        </profile>
+        <profile>
+            <id>myproject</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <build.profile.id>myproject</build.profile.id>
+            </properties>
+        </profile>
+    </profiles>
+    <dependencies>
+
+    </dependencies>
+    <build>
+        <finalName>demo</finalName>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>properties-maven-plugin</artifactId>
+            <version>1.0-alpha-2</version>
+            <configuration>
+              <files>
+                <!-- Properties are read from profile specific property file -->
+                <file>${project.basedir}/profiles/${build.profile.id}/config.properties</file>
+              </files>
+            </configuration>
+            <executions>
+              <!-- Load properties for the default lifecycle -->
+              <execution>
+                <id>default-lifecycle-properties</id>
+                <phase>initialize</phase>
+                <goals>
+                  <goal>read-project-properties</goal>
+                </goals>
+              </execution>
+              <!-- Load properties for the clean lifecycle -->
+              <execution>
+                <id>clean-lifecycle-properties</id>
+                <phase>pre-clean</phase>
+                <goals>
+                  <goal>read-project-properties</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.mybatis.generator</groupId>
+            <artifactId>mybatis-generator-maven-plugin</artifactId>
+            <version>1.3.2</version>
+            <executions>
+              <execution>
+                <id>Generate MyBatis Artifacts</id>
+                <goals>
+                  <goal>generate</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+            </configuration>
+            <dependencies>
+              <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>5.1.35</version>
+              </dependency>
+              <dependency>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-core</artifactId>
+                <version>1.3.2</version>
+              </dependency>
+              <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>3.3.0</version>
+              </dependency>
+            </dependencies>
+          </plugin>
+        </plugins>
+    </build>
+</project>
