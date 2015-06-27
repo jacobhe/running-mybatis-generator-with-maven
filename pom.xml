@@ -26,15 +26,6 @@
                 <build.profile.id>demo</build.profile.id>
             </properties>
         </profile>
-        <profile>
-            <id>myproject</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <build.profile.id>myproject</build.profile.id>
-            </properties>
-        </profile>
     </profiles>
     <dependencies>
 
