@@ -6,6 +6,21 @@
 <generatorConfiguration>
 
   <context id="MySQLTables" targetRuntime="MyBatis3">
+
+    <!-- <plugin type="mybatis.generator.plugins.MapperClassNamePlugin" /> -->
+    <!-- <plugin type="mybatis.generator.plugins.MapperXmlNamePlugin" /> -->
+    <!-- <plugin type="mybatis.generator.plugins.SharingPlugin" /> -->
+
+    <!-- <plugin type="org.mybatis.generator.plugins.SerializablePlugin" /> -->
+    <!-- <plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin" /> -->
+    <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin" />
+    <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+    <!-- <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" /> -->
+    <!--<plugin type="org.mybatis.generator.plugins.VirtualPrimaryKeyPlugin" /> -->
+    <!--<plugin type="org.mybatis.generator.plugins.MapperConfigPlugin" /> -->
+    <!--<plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin" > -->
+    <!--<plugin type="org.mybatis.generator.plugins.SqlMapConfigPlugin" /> -->
+    
     <jdbcConnection driverClass="${mybatis.generator.jdbcDriver}"
         connectionURL="${mybatis.generator.jdbcURL}"
         userId="${mybatis.generator.jdbcUserId}"
